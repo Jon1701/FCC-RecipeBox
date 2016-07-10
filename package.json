@@ -1,0 +1,29 @@
+{
+  "name": "recipe-box",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jon1701/RecipeBox.git"
+  },
+  "author": "Jon1701",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jon1701/RecipeBox/issues"
+  },
+  "homepage": "https://github.com/Jon1701/RecipeBox#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-webserver": "^0.9.1",
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1"
+  }
+}
