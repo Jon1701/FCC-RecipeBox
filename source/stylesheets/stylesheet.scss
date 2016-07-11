@@ -1,0 +1,29 @@
+// Style for individual recipe.
+.recipe {
+
+  // Recipe Name.
+  .name {
+    text-align: center;
+  }
+
+  // Details container and button.
+  .details {
+
+    margin: 0;
+
+    button {
+      display: block;
+      border-radius: 0px;
+      border: solid 1px black;
+      width: 100%;
+      margin: 0;
+    }
+  } // end Details container and button.
+
+}
+
+// Responsive image class.
+.img-responsive {
+  width: 100%;
+  height: auto;
+}
