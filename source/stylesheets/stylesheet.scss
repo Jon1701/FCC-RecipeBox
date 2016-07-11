@@ -1,24 +1,27 @@
+body {
+  background-color: #333333;
+  font-family: Helvetica;
+  font-size: 100%;
+}
+
 // Style for individual recipe.
 .recipe {
 
-  // Recipe Name.
-  .name {
-    text-align: center;
-  }
+  .cover {
+    position: relative;
 
-  // Details container and button.
-  .details {
+    .name {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      color: #FFFFFF;
+      font-family: "Roboto";
 
-    margin: 0;
+      margin-bottom: 5%;
+      margin-left: 5%;
 
-    button {
-      display: block;
-      border-radius: 0px;
-      border: solid 1px black;
-      width: 100%;
-      margin: 0;
     }
-  } // end Details container and button.
+  }
 
 }
 

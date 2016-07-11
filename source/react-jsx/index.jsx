@@ -1,12 +1,16 @@
-
+// Individual recipe.
 var Recipe = React.createClass({
   render: function() {
 
     return (
       <div className="recipe">
-        <div className="name">{this.props.recipe.name}</div>
-        <div className="picture"><img src={this.props.recipe.picture} className="img-responsive"/></div>
-        <div className="details"><button>Open Recipe</button></div>
+
+        <div className="cover">
+          <img src={this.props.recipe.picture} className="img-responsive"/>
+
+          <div className="name">{this.props.recipe.name}</div>
+        </div>
+
       </div>
     );
   }
@@ -41,8 +45,8 @@ var RecipeList = React.createClass({
 
   render: function() {
 
-    var temp = this.state.recipes.map(function(element) {
-      return <Recipe recipe={element}/>
+    var temp = this.state.recipes.map(function(element, index) {
+      return <Recipe recipe={element} key={index}/>
     })
 
     return (
