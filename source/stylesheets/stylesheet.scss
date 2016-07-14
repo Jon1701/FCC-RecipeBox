@@ -1,32 +1,46 @@
 body {
-  background-color: #333333;
-  font-family: Helvetica;
+  background-color: #DB4105;
+  font-family: "Roboto";
   font-size: 100%;
 }
 
 // Style for individual recipe.
-.recipe {
+.card {
 
-  .cover {
+  font-size: 1em;
+  margin: 5px;
+
+  .card-image {
     position: relative;
 
-    .name {
+    img { overflow: hidden; };
+
+    .card-title {
       position: absolute;
       bottom: 0;
       left: 0;
-      color: #FFFFFF;
-      font-family: "Roboto";
 
-      margin-bottom: 5%;
-      margin-left: 5%;
+      margin: 3%;
+
+      color: #FFFFFF;
+      text-transform: uppercase;
 
     }
+  }
+
+  .card-description {
+    background-color: white;
+    color: #333333;
+    font-size: 0.75em;
+
+    padding: 3%;
   }
 
 }
 
 // Responsive image class.
 .img-responsive {
+  display: block;
   width: 100%;
   height: auto;
 }

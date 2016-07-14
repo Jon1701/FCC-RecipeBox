@@ -1,14 +1,21 @@
+
+
 // Individual recipe.
 var Recipe = React.createClass({
   render: function() {
 
     return (
-      <div className="recipe">
+      <div className="card">
 
-        <div className="cover">
-          <img src={this.props.recipe.picture} className="img-responsive"/>
+        <div className="card-image">
+          <img className="img-responsive" src={this.props.recipe.picture} />
+          <span className="card-title">{this.props.recipe.name}</span>
+        </div>
 
-          <div className="name">{this.props.recipe.name}</div>
+        <div className="card-description">
+          <p>
+            {this.props.recipe.description}
+          </p>
         </div>
 
       </div>
@@ -25,18 +32,21 @@ var RecipeList = React.createClass({
     return {
       recipes: [
         {
-          'name': 'Pumpkin Pie',
+          'name': 'Architecture',
           'picture': 'https://placeholdit.imgix.net/~text?txtsize=80&txt=Recipe&w=1024&h=600',
+          'description': 'Sunt id in ea veniam tempor consequat voluptate fugiat elit ad.',
           ingredients: ['Pumpkin Puree', 'Eggs', 'Pumpkin Pie Spice', 'Pie Crust']
         },
         {
           'name': 'Spaghetti',
           'picture': 'https://placeholdit.imgix.net/~text?txtsize=80&txt=Recipe&w=1024&h=600',
+          'description': 'Aute cupidatat sunt ullamco et laborum esse reprehenderit tempor.',
           ingredients: ['Noodles', 'Tomato Sauce', 'Meatballs']
         },
         {
           'name': 'Onion Pie',
           'picture': 'https://placeholdit.imgix.net/~text?txtsize=80&txt=Recipe&w=1024&h=600',
+          'description': 'Proident culpa eiusmod ullamco adipisicing eu anim nulla tempor do officia.',
           ingredients: ['Onion', 'Pie Crust']
         }
       ]
