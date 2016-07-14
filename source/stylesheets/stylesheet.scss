@@ -4,39 +4,6 @@ body {
   font-size: 100%;
 }
 
-// Style for individual recipe.
-.card {
-
-  font-size: 1em;
-  margin: 5px;
-
-  .card-image {
-    position: relative;
-
-    img { overflow: hidden; };
-
-    .card-title {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-
-      margin: 3%;
-
-      color: #FFFFFF;
-      text-transform: uppercase;
-
-    }
-  }
-
-  .card-description {
-    background-color: white;
-    color: #333333;
-    font-size: 0.75em;
-
-    padding: 3%;
-  }
-
-}
 
 // Responsive image class.
 .img-responsive {
@@ -44,3 +11,11 @@ body {
   width: 100%;
   height: auto;
 }
+
+// Align text center.
+.text-center {
+  text-align: center;
+}
+
+// Imported.
+@import '_cards';
