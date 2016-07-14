@@ -1,4 +1,30 @@
+var ViewRecipe = React.createClass({
+  render: function() {
+    return (
+      <div className="recipe-view">
 
+        <div className="title text-center">
+          Architecture
+        </div>
+
+        <div className="col-2">
+
+          <div className="ingredients">
+            .ingredients
+          </div>
+
+          <div className="image">
+            .image
+          </div>
+
+        </div>
+
+
+
+      </div>
+    )
+  }
+});
 
 // Individual recipe.
 var Recipe = React.createClass({
@@ -17,6 +43,8 @@ var Recipe = React.createClass({
             {this.props.recipe.description}
           </p>
         </div>
+
+        <ViewRecipe/>
 
       </div>
     );
