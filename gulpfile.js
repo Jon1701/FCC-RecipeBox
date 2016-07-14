@@ -41,6 +41,15 @@ gulp.task('html', function() {
 // Components.
 ////////////////////////////////////////////////////////////////////////////////
 
+// Bootstrap grid.
+gulp.task('bootstrap', function() {
+
+  // Stylesheet.
+  gulp.src(srcPath + 'components/bootstrap-grid/css/bootstrap.css')
+    .pipe(gulp.dest(destPath + 'components/bootstrap-grid/css/'))
+
+});
+
 // React.
 gulp.task('react', function() {
 
@@ -80,4 +89,4 @@ gulp.task('watch', function() {
 ////////////////////////////////////////////////////////////////////////////////
 // Default task
 ////////////////////////////////////////////////////////////////////////////////
-gulp.task('default', ['webserver', 'watch', 'jsx', 'stylesheets', 'html', 'react']);
+gulp.task('default', ['webserver', 'watch', 'jsx', 'stylesheets', 'html', 'bootstrap', 'react']);
