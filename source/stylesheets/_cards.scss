@@ -3,7 +3,10 @@
 .card {
 
   font-size: 1em;
-  margin: 5px;
+  margin-bottom: 5px;
+  padding-left: 2.5px;
+  padding-right: 2.5px;
+
 
   .card-image {
     position: relative;
@@ -29,6 +32,13 @@
     font-size: 0.75em;
 
     padding: 3%;
+
+    p {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
   }
 
 }

@@ -4,6 +4,15 @@ body {
   font-size: 100%;
 }
 
+#recipe-box {
+  width: 100%;
+}
+
+[class*="col-"] {
+  margin-bottom: -99999px;
+  padding-bottom: 99999px;
+}
+
 // Responsive image class.
 .img-responsive {
   display: block;

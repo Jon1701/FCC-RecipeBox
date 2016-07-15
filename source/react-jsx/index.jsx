@@ -15,8 +15,6 @@ var ViewRecipe = React.createClass({
           <img src={this.props.recipe.picture} className="img-responsive"/>
         </div>
 
-
-
       </div>
     )
   }
@@ -28,24 +26,21 @@ var Recipe = React.createClass({
 
     return (
 
-      <div>
+      <div className="card col-xs-4 col-sm-4 col-md-4 col-lg-4">
 
-        <div className="card col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <div className="card-image">
+          <img className="img-responsive" src={this.props.recipe.picture} />
+          <span className="card-title">{this.props.recipe.name}</span>
+        </div>
 
-          <div className="card-image">
-            <img className="img-responsive" src={this.props.recipe.picture} />
-            <span className="card-title">{this.props.recipe.name}</span>
-          </div>
-
-          <div className="card-description">
-            <p>
-              {this.props.recipe.description}
-            </p>
-          </div>
-
+        <div className="card-description">
+          <p>
+            {this.props.recipe.description}
+          </p>
         </div>
 
       </div>
+
     );
   }
 });
@@ -100,9 +95,7 @@ var RecipeList = React.createClass({
 var RecipeContainer = React.createClass({
   render: function() {
     return (
-      <div className="container" id="recipe-box">
         <RecipeList/>
-      </div>
     );
   }
 });
