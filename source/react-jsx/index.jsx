@@ -30,7 +30,7 @@ var Recipe = React.createClass({
 
       <div>
 
-        <div className="card">
+        <div className="card col-xs-12 col-sm-6 col-md-4 col-lg-3">
 
           <div className="card-image">
             <img className="img-responsive" src={this.props.recipe.picture} />
@@ -45,7 +45,6 @@ var Recipe = React.createClass({
 
         </div>
 
-        <ViewRecipe recipe={this.props.recipe}/>
 
       </div>
     );
