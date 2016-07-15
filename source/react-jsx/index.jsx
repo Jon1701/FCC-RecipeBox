@@ -6,6 +6,8 @@ var ViewRecipe = React.createClass({
       return (
         <div className="recipe-view">
 
+          <button onClick={this.props.hideModal}>Close</button>
+
           <div className="title text-center">
             {this.props.recipe.name}
           </div>
@@ -30,15 +32,21 @@ var ViewRecipe = React.createClass({
 // Individual recipe.
 var Recipe = React.createClass({
 
-  showView: function() {
+  hideModal: function() {
     this.setState({
-      showView: true
+      display: false
+    });
+  },
+
+  showModal: function() {
+    this.setState({
+      display: true
     });
   },
 
   getInitialState: function() {
     return {
-      showView: false
+      display: true
     }
   },
 
@@ -46,9 +54,9 @@ var Recipe = React.createClass({
 
     return (
 
-    <div onClick={this.showView}>
+    <div>
 
-      <div className="card col-xs-6 col-sm-4 col-md-4 col-lg-4">
+      <div className="card col-xs-6 col-sm-4 col-md-4 col-lg-4" onClick={this.showModal}>
 
         <div className="card-image">
           <img className="img-responsive card-image-small card-image-darken" src={this.props.recipe.picture} />
@@ -63,7 +71,7 @@ var Recipe = React.createClass({
 
       </div>
 
-      <ViewRecipe recipe={this.props.recipe} show={this.state.showView}/>
+      <ViewRecipe recipe={this.props.recipe} show={this.state.display} hideModal={this.hideModal}/>
 
     </div>
 
