@@ -2,6 +2,8 @@
 // Style for individual recipe.
 .card {
 
+  display: block;
+
   font-size: 1em;
   margin-bottom: 5px;
   padding-left: 2.5px;
@@ -20,6 +22,7 @@
 
       margin: 3%;
 
+      font-size: 0.9em;
       color: #FFFFFF;
       text-transform: uppercase;
 
