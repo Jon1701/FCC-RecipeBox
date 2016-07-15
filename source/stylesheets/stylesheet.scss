@@ -4,7 +4,6 @@ body {
   font-size: 100%;
 }
 
-
 // Responsive image class.
 .img-responsive {
   display: block;
@@ -18,5 +17,6 @@ body {
 }
 
 // Imported.
-@import '_cards';
-@import '_recipe-view';
+@import '_fonts'; // Fonts.
+@import '_cards'; // Material Design Cards.
+@import '_recipe-view'; // Recipe View.

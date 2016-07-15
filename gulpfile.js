@@ -17,6 +17,12 @@ var modulesPath = './node_modules/';
 // Tasks
 ////////////////////////////////////////////////////////////////////////////////
 
+// Fonts
+gulp.task('fonts', function() {
+  gulp.src(srcPath + 'fonts/**/*')
+    .pipe(gulp.dest(destPath + 'fonts/'));
+});
+
 // JSX.
 gulp.task('jsx', function() {
   gulp.src(srcPath + 'react-jsx/*')
@@ -89,4 +95,4 @@ gulp.task('watch', function() {
 ////////////////////////////////////////////////////////////////////////////////
 // Default task
 ////////////////////////////////////////////////////////////////////////////////
-gulp.task('default', ['webserver', 'watch', 'jsx', 'stylesheets', 'html', 'bootstrap', 'react']);
+gulp.task('default', ['webserver', 'watch', 'fonts', 'jsx', 'stylesheets', 'html', 'bootstrap', 'react']);
