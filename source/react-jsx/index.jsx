@@ -1,7 +1,7 @@
 var ViewRecipe = React.createClass({
   render: function() {
     return (
-      <div className="recipe-view">
+      <div className="recipe-view hidden">
 
         <div className="title text-center">
           {this.props.recipe.name}
@@ -26,6 +26,8 @@ var Recipe = React.createClass({
 
     return (
 
+    <div>
+
       <div className="card col-xs-6 col-sm-4 col-md-4 col-lg-4">
 
         <div className="card-image">
@@ -40,6 +42,10 @@ var Recipe = React.createClass({
         </div>
 
       </div>
+
+      <ViewRecipe recipe={this.props.recipe}/>
+
+    </div>
 
     );
   }
