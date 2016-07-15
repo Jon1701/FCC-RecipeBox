@@ -43,6 +43,14 @@ gulp.task('html', function() {
     .pipe(gulp.dest(destPath));
 });
 
+// Media
+gulp.task('media', function() {
+
+  // Placeholder images.
+  gulp.src(srcPath + 'media/images/placeholders/*')
+    .pipe(gulp.dest(destPath + 'media/images/placeholders/'));
+
+});
 ////////////////////////////////////////////////////////////////////////////////
 // Components.
 ////////////////////////////////////////////////////////////////////////////////
@@ -95,4 +103,4 @@ gulp.task('watch', function() {
 ////////////////////////////////////////////////////////////////////////////////
 // Default task
 ////////////////////////////////////////////////////////////////////////////////
-gulp.task('default', ['webserver', 'watch', 'fonts', 'jsx', 'stylesheets', 'html', 'bootstrap', 'react']);
+gulp.task('default', ['webserver', 'watch', 'fonts', 'jsx', 'stylesheets', 'html', 'media' , 'bootstrap', 'react']);
