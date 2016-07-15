@@ -26,10 +26,10 @@ var Recipe = React.createClass({
 
     return (
 
-      <div className="card col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <div className="card col-xs-6 col-sm-4 col-md-4 col-lg-4">
 
         <div className="card-image">
-          <img className="img-responsive" src={this.props.recipe.picture} />
+          <img className="img-responsive card-cover-size" src={this.props.recipe.picture} />
           <span className="card-title">{this.props.recipe.name}</span>
         </div>
 
