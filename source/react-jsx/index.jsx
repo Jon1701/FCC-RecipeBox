@@ -1,32 +1,52 @@
 var ViewRecipe = React.createClass({
+
   render: function() {
-    return (
-      <div className="recipe-view hidden">
 
-        <div className="title text-center">
-          {this.props.recipe.name}
+    if (this.props.show) {
+      return (
+        <div className="recipe-view">
+
+          <div className="title text-center">
+            {this.props.recipe.name}
+          </div>
+
+          <div className="ingredients col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            {this.props.recipe.ingredients}
+          </div>
+
+          <div className="image col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <img src={this.props.recipe.picture} className="img-responsive"/>
+          </div>
+
         </div>
+      )
+    } else {
+      return null;
+    }
 
-        <div className="ingredients col-xs-6 col-sm-6 col-md-6 col-lg-6">
-          {this.props.recipe.ingredients}
-        </div>
-
-        <div className="image col-xs-6 col-sm-6 col-md-6 col-lg-6">
-          <img src={this.props.recipe.picture} className="img-responsive"/>
-        </div>
-
-      </div>
-    )
   }
 });
 
 // Individual recipe.
 var Recipe = React.createClass({
+
+  showView: function() {
+    this.setState({
+      showView: true
+    });
+  },
+
+  getInitialState: function() {
+    return {
+      showView: false
+    }
+  },
+
   render: function() {
 
     return (
 
-    <div>
+    <div onClick={this.showView}>
 
       <div className="card col-xs-6 col-sm-4 col-md-4 col-lg-4">
 
@@ -43,7 +63,7 @@ var Recipe = React.createClass({
 
       </div>
 
-      <ViewRecipe recipe={this.props.recipe}/>
+      <ViewRecipe recipe={this.props.recipe} show={this.state.showView}/>
 
     </div>
 
