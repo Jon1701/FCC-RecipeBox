@@ -1,7 +1,10 @@
 .recipe-view {
 
-  max-width: 95vw;
-  min-height: 95vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  z-index: 100;
 
   font-size: 1em;
 
