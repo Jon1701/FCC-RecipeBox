@@ -1,9 +1,10 @@
-
-.card-cover-darken {
-   -webkit-filter: brightness(80%);
+// Darkens card photo.
+.card-image-darken {
+   -webkit-filter: brightness(70%);
 }
 
-.card-cover-size {
+// Resize card photo.
+.card-image-small {
   max-height: 200px;
   object-fit: cover;
 }
@@ -14,6 +15,7 @@
   display: block;
 
   font-size: 1em;
+
   margin-bottom: 5px;
   padding-left: 2.5px;
   padding-right: 2.5px;
