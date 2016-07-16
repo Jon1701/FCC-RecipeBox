@@ -12,7 +12,7 @@ var ViewRecipe = React.createClass({
             {this.props.recipe.name}
           </div>
 
-          <div className="ingredients col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <div className="ingredients col-xs-6 col-sm-6 col-md-6 col-lg-6" contentEditable="true">
             {this.props.recipe.ingredients}
           </div>
 
