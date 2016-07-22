@@ -4,7 +4,7 @@
 var gulp = require('gulp'); // Gulp.
 var webserver = require('gulp-webserver'); // Gulp webserver.
 var sass = require('gulp-sass'); // SASS.
-var babel = require('gulp-babel'); // JSX to ES6 transpiler.
+var webpack = require('webpack-stream'); // Webpack.
 
 ////////////////////////////////////////////////////////////////////////////////
 // Paths
@@ -23,10 +23,23 @@ gulp.task('fonts', function() {
     .pipe(gulp.dest(destPath + 'fonts/'));
 });
 
-// JSX.
+// JSX
 gulp.task('jsx', function() {
-  gulp.src(srcPath + 'react-jsx/*')
-    .pipe(babel({ presets: ['es2015', 'react'] }))
+  gulp.src(srcPath + 'react-jsx/index.jsx')
+    .pipe(webpack({
+      watch: true,
+      module: {
+        loaders: [
+          {
+            test: /\.jsx$/,
+            loader: 'babel'
+          }
+        ]
+      },
+      output: {
+        filename: 'app.js'
+      }
+    }))
     .pipe(gulp.dest(destPath + 'javascript/'));
 });
 
@@ -51,31 +64,6 @@ gulp.task('media', function() {
     .pipe(gulp.dest(destPath + 'media/images/placeholders/'));
 
 });
-////////////////////////////////////////////////////////////////////////////////
-// Components.
-////////////////////////////////////////////////////////////////////////////////
-
-// Bootstrap grid.
-gulp.task('bootstrap', function() {
-
-  // Stylesheet.
-  gulp.src(srcPath + 'components/bootstrap-grid/css/bootstrap.css')
-    .pipe(gulp.dest(destPath + 'components/bootstrap-grid/css/'))
-
-});
-
-// React.
-gulp.task('react', function() {
-
-  // ReactJS
-  gulp.src(modulesPath + 'react/dist/react.js')
-    .pipe(gulp.dest(destPath + 'components/react/'));
-
-  // ReactDOM
-  gulp.src(modulesPath + 'react-dom/dist/react-dom.js')
-    .pipe(gulp.dest(destPath + 'components/react/'));
-
-});
 
 ////////////////////////////////////////////////////////////////////////////////
 // Webserver
@@ -86,7 +74,7 @@ gulp.task("webserver", function() {
       fallback: "index.html",
       livereload: true,
       directoryListing: false,
-      open: true
+      open: false
     }));
 });
 
@@ -103,4 +91,4 @@ gulp.task('watch', function() {
 ////////////////////////////////////////////////////////////////////////////////
 // Default task
 ////////////////////////////////////////////////////////////////////////////////
-gulp.task('default', ['webserver', 'watch', 'fonts', 'jsx', 'stylesheets', 'html', 'media' , 'bootstrap', 'react']);
+gulp.task('default', ['webserver', 'watch', 'fonts', 'jsx', 'stylesheets', 'html', 'media']);
