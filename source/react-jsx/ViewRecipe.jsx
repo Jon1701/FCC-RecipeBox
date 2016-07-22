@@ -1,8 +1,9 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-var ViewRecipe = React.createClass({
+class ViewRecipe extends React.Component {
 
-  render: function() {
-
+  render() {
     if (this.props.show) {
       return (
         <div className="recipe-view">
@@ -13,7 +14,7 @@ var ViewRecipe = React.createClass({
             {this.props.recipe.name}
           </div>
 
-          <div className="ingredients col-xs-6 col-sm-6 col-md-6 col-lg-6" contentEditable="true">
+          <div className="ingredients col-xs-6 col-sm-6 col-md-6 col-lg-6">
             {this.props.recipe.ingredients}
           </div>
 
@@ -26,6 +27,8 @@ var ViewRecipe = React.createClass({
     } else {
       return null;
     }
-
   }
-});
+
+}
+
+export default ViewRecipe;

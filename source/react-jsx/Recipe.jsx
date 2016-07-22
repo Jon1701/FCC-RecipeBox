@@ -1,50 +1,52 @@
+import React from 'react';
+import ViewRecipe from './ViewRecipe.jsx';
 
-// Individual recipe.
-var Recipe = React.createClass({
+class Recipe extends React.Component {
 
-  hideModal: function() {
+  constructor() {
+    super();
+
+    this.state = {
+      display: true
+    }
+  }
+
+  hideModal() {
     this.setState({
       display: false
     });
-  },
+  }
 
-  showModal: function() {
+  showModal() {
     this.setState({
       display: true
     });
-  },
+  }
 
-  getInitialState: function() {
-    return {
-      display: true
-    }
-  },
-
-  render: function() {
-
+  render() {
     return (
+      <div>
 
-    <div>
+        <div className="card col-xs-6 col-sm-4 col-md-4 col-lg-4" onClick={this.showModal.bind(this)}>
 
-      <div className="card col-xs-6 col-sm-4 col-md-4 col-lg-4" onClick={this.showModal}>
+          <div className="card-image">
+            <img className="img-responsive card-image-small card-image-darken" src={this.props.recipe.picture} />
+            <span className="card-title">{this.props.recipe.name}</span>
+          </div>
 
-        <div className="card-image">
-          <img className="img-responsive card-image-small card-image-darken" src={this.props.recipe.picture} />
-          <span className="card-title">{this.props.recipe.name}</span>
+          <div className="card-description">
+            <p>
+              {this.props.recipe.description}
+            </p>
+          </div>
+
         </div>
 
-        <div className="card-description">
-          <p>
-            {this.props.recipe.description}
-          </p>
-        </div>
+        <ViewRecipe recipe={this.props.recipe} show={this.state.display} hideModal={this.hideModal.bind(this)}/>
 
       </div>
-
-      <ViewRecipe recipe={this.props.recipe} show={this.state.display} hideModal={this.hideModal}/>
-
-    </div>
-
     );
   }
-});
+}
+
+export default Recipe;

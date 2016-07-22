@@ -1,16 +1,13 @@
-
-
+import React from 'react';
+import Recipe from './Recipe.jsx';
 
 // Component which contains all recipe data.
-var RecipeList = React.createClass({
+class RecipeList extends React.Component {
 
-  updateRecipe: function(id) {
+  constructor() {
+    super();
 
-  },
-
-  // Default recipes.
-  getInitialState: function() {
-    return {
+    this.state = {
       recipes: [
         {
           'id': 0,
@@ -35,18 +32,18 @@ var RecipeList = React.createClass({
         }
       ]
     }
-  },
+  }
 
-  render: function() {
-
-    var objThis = this;
-
+  render() {
     return (
       <div>
         {this.state.recipes.map(function(element, index) {
-          return <Recipe recipe={element} updater={objThis.updateRecipe} key={index}/>
+          return <Recipe recipe={element} key={index}/>
         })}
       </div>
     );
   }
-});
+
+}
+
+export default RecipeList;
