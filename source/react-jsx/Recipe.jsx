@@ -42,7 +42,7 @@ class Recipe extends React.Component {
 
         </div>
 
-        <ViewRecipe recipe={this.props.recipe} show={this.state.display} hideModal={this.hideModal.bind(this)}/>
+        <ViewRecipe recipe={this.props.recipe} show={this.state.display} hideModal={this.hideModal.bind(this)} updater={this.props.updater}/>
 
       </div>
     );
