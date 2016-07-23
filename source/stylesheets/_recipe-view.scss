@@ -4,6 +4,7 @@
   top: 0;
   left: 0;
 
+
   z-index: 100;
 
   font-size: 1em;
@@ -12,10 +13,41 @@
 
   background-color: white;
 
-  .title {
-    padding: 5%;
+  .title, .description {
+    padding: 2%;
     text-transform: uppercase;
     background-color: inherit;
+
+    input {
+      width: 100%;
+      text-align: center;
+      border: none;
+    }
+  }
+
+  .ingredients {
+
+    textarea {
+      min-width: 100%;
+      max-width: 100%;
+      width: 100%;
+
+      min-height: 200px;
+
+      border: none;
+    }
+  }
+
+  .instructions {
+    width: 100%;
+    padding: 3%;
+
+    textarea {
+      min-width: 100%;
+      max-width: 100%;
+      width: 100%;
+      border: none;
+    }
   }
 
 }

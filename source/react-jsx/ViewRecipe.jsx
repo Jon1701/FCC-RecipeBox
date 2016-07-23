@@ -17,26 +17,50 @@ class ViewRecipe extends React.Component {
       return (
         <div className="recipe-view">
 
-          <button onClick={this.props.hideModal}>Close</button>
+          <div className="close-button" onClick={this.props.hideModal}>
+            &times;
+          </div>
 
-          <input
-            className="title text-center"
-            data-key="name"
-            defaultValue={this.props.recipe.name}
-            onChange={this.handleChange.bind(this)}
-          />
+          <div className="title">
+            <input
+              data-key="name"
+              defaultValue={this.props.recipe.name}
+              onChange={this.handleChange.bind(this)}
+              placeholder="Enter a title for this recipe"
+            />
+          </div>
 
-          <textarea
-            className="ingredients col-xs-6 col-sm-6 col-md-6 col-lg-6"
-            data-key="ingredients"
-            defaultValue={this.props.recipe.ingredients}
-            onChange={this.handleChange.bind(this)}
-          />
+          <div className="description">
+            <input
+              data-key="description"
+              defaultValue={this.props.recipe.description}
+              onChange={this.handleChange.bind(this)}
+              placeholder="Enter a description for this recipe"
+            />
+          </div>
 
+          <div className="container">
+            <div className="ingredients col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <textarea
+                data-key="ingredients"
+                defaultValue={this.props.recipe.ingredients}
+                onChange={this.handleChange.bind(this)}
+                placeholder="Enter some ingredients for this recipe"
+              />
+            </div>
 
+            <div className="image col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <img src={this.props.recipe.picture} className="img-responsive"/>
+            </div>
+          </div>
 
-          <div className="image col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <img src={this.props.recipe.picture} className="img-responsive"/>
+          <div className="instructions">
+            <textarea
+              data-key="instructions"
+              defaultValue={this.props.recipe.instructions}
+              onChange={this.handleChange.bind(this)}
+              placeholder="Enter preparation instructions"
+            />
           </div>
 
         </div>
