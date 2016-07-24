@@ -93,7 +93,7 @@ class ViewRecipe extends React.Component {
 
               <button
                 onClick={this.handleImageUpload.bind(this)}
-                className="img-responsive">
+                className="btn-default img-responsive">
                 Upload image
               </button>
 

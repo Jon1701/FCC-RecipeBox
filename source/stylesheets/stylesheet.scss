@@ -30,3 +30,12 @@ body {
 @import '_fonts'; // Fonts.
 @import '_cards'; // Material Design Cards.
 @import '_recipe-view'; // Recipe View.
+
+.btn-default {
+  border-radius: 0;
+  border: none;
+  outline: none;
+  background: none;
+  text-transform: uppercase;
+
+}
