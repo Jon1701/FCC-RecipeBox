@@ -4,9 +4,13 @@ import Recipe from './Recipe.jsx';
 // Component which contains all recipe data.
 class RecipeList extends React.Component {
 
+  //////////////////////////////////////////////////////////////////////////////
+  // Component constructor
+  //////////////////////////////////////////////////////////////////////////////
   constructor() {
     super();
 
+    // Default list of recipes.
     this.state = {
       recipes: [
         {
@@ -34,23 +38,32 @@ class RecipeList extends React.Component {
           'instructions': 'Ad occaecat esse incididunt aliquip proident velit reprehenderit dolor officia reprehenderit proident ad ipsum cillum tempor. Nostrud culpa amet do nulla quis in in consequat do dolore laboris elit esse. Deserunt voluptate id minim tempor consectetur aliquip consequat incididunt excepteur fugiat occaecat minim. Sint commodo laborum esse velit consequat sint laboris est officia laboris officia ullamco non minim quis laborum. Aliquip magna velit tempor tempor exercitation esse enim sit Lorem elit deserunt proident magna. Sint ullamco tempor labore anim sunt culpa irure.'
         }
       ]
-    }
+    }// end default state.
+
   }
 
+  //////////////////////////////////////////////////////////////////////////////
+  // Function to handle <RecipeList/> state changes
+  //
+  // Arguments:
+  //  id: the recipe id number
+  //  key: the field name whose value is to be updated
+  //  value: the updated value
+  //////////////////////////////////////////////////////////////////////////////
   handleUserChange(id, key, value) {
 
-    // Get a copy of recipes in state.
+    // Get a copy of all recipes in the state.
     var recipes = this.state.recipes.slice();
 
-    // Filter this.state.recipes by id.
+    // Filter recipes and only return the recipe to be updated.
     var result = recipes.filter(function(currentValue, index, arr) {
       return currentValue.id == id;
     })[0];
 
-    // Get index of recipe in state.
+    // Get the index of the recipe to be updated.
     var idx = recipes.indexOf(result);
 
-    // Modify result to hold updated data.
+    // Modify recipe to with updated data.
     result[key] = value;
 
     // Replace modified recipe into array.
@@ -63,8 +76,12 @@ class RecipeList extends React.Component {
 
   }
 
+  //////////////////////////////////////////////////////////////////////////////
+  // Component render
+  //////////////////////////////////////////////////////////////////////////////
   render() {
 
+    // Reference to this component.
     var thisComp = this;
 
     return (

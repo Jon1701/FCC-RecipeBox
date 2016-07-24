@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 
 class ViewRecipe extends React.Component {
 
+  //////////////////////////////////////////////////////////////////////////////
+  // Function to handle image uploads.
+  //////////////////////////////////////////////////////////////////////////////
   handleImageUpload() {
 
     // Get the id of the current recipe.
@@ -15,26 +18,30 @@ class ViewRecipe extends React.Component {
     let fileInput = document.getElementById('recipe-file-' + id);
     fileInput.click();
 
-    // When the file input changes (upload),
-    // load the file.
+    // When the file input changes (upload), load the file.
     fileInput.onchange = function() {
 
       // Get the file.
       let file = fileInput.files[0];
 
+      // FileReader
       var reader = new FileReader();
 
+      // Attach and event listener to the FileReader object.
+      // When a new file is detected, update parent state.
       reader.addEventListener('load', function() {
         updater(id, 'picture', reader.result)
       }, false);
 
+      // Read the chosen file.
       reader.readAsDataURL(file);
-
-
     }
   }
 
-  handleChange(event) {
+  //////////////////////////////////////////////////////////////////////////////
+  // Function to <ViewRecipe/> prop changes.
+  //////////////////////////////////////////////////////////////////////////////
+  handleRecipeEdit(event) {
 
     let id = this.props.recipe.id;
     let key = event.target.getAttribute('data-key');
@@ -43,6 +50,9 @@ class ViewRecipe extends React.Component {
     this.props.updater(id, key, value);
   }
 
+  //////////////////////////////////////////////////////////////////////////////
+  // Component render.
+  //////////////////////////////////////////////////////////////////////////////
   render() {
     if (this.props.show) {
       return (
@@ -56,7 +66,7 @@ class ViewRecipe extends React.Component {
             <input
               data-key="name"
               defaultValue={this.props.recipe.name}
-              onChange={this.handleChange.bind(this)}
+              onChange={this.handleRecipeEdit.bind(this)}
               placeholder="Enter a title for this recipe"
             />
           </div>
@@ -65,7 +75,7 @@ class ViewRecipe extends React.Component {
             <input
               data-key="description"
               defaultValue={this.props.recipe.description}
-              onChange={this.handleChange.bind(this)}
+              onChange={this.handleRecipeEdit.bind(this)}
               placeholder="Enter a description for this recipe"
             />
           </div>
@@ -75,7 +85,7 @@ class ViewRecipe extends React.Component {
               <textarea
                 data-key="ingredients"
                 defaultValue={this.props.recipe.ingredients}
-                onChange={this.handleChange.bind(this)}
+                onChange={this.handleRecipeEdit.bind(this)}
                 placeholder="Enter some ingredients for this recipe"
               />
             </div>
@@ -104,7 +114,7 @@ class ViewRecipe extends React.Component {
             <textarea
               data-key="instructions"
               defaultValue={this.props.recipe.instructions}
-              onChange={this.handleChange.bind(this)}
+              onChange={this.handleRecipeEdit.bind(this)}
               placeholder="Enter preparation instructions"
             />
           </div>
