@@ -56,7 +56,7 @@ class ViewRecipe extends React.Component {
   render() {
     if (this.props.show) {
       return (
-        <div className="recipe-view">
+        <div className="card recipe-view">
 
           <div className="close-button" onClick={this.props.hideModal}>
             &times;
@@ -64,6 +64,7 @@ class ViewRecipe extends React.Component {
 
           <div className="title">
             <input
+              className="card-title"
               data-key="name"
               defaultValue={this.props.recipe.name}
               onChange={this.handleRecipeEdit.bind(this)}
@@ -81,7 +82,7 @@ class ViewRecipe extends React.Component {
           </div>
 
           <div className="container">
-            <div className="ingredients col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div className="ingredients col s6">
               <textarea
                 data-key="ingredients"
                 defaultValue={this.props.recipe.ingredients}
@@ -90,8 +91,8 @@ class ViewRecipe extends React.Component {
               />
             </div>
 
-            <div className="image col-xs-6 col-sm-6 col-md-6 col-lg-6">
-              <img src={this.props.recipe.picture} className="img-responsive"/>
+            <div className="image col s6">
+              <img src={this.props.recipe.picture} className="responsive-img"/>
 
               <input
                 accept="image/*"
