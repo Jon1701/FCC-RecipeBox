@@ -66,6 +66,21 @@ gulp.task('media', function() {
 });
 
 ////////////////////////////////////////////////////////////////////////////////
+// Components
+////////////////////////////////////////////////////////////////////////////////
+gulp.task('components', function() {
+
+  // Materialize
+  gulp.src(modulesPath + 'materialize-css/dist/css/materialize.css')
+    .pipe(gulp.dest(destPath + 'components/materialize/css/'));
+  gulp.src(modulesPath + 'materialize-css/dist/fonts/**/*')
+    .pipe(gulp.dest(destPath + 'components/materialize/fonts/'));
+  gulp.src(modulesPath + 'materialize-css/dist/js/materialize.js')
+    .pipe(gulp.dest(destPath + 'components/materialize/js/'));
+
+});
+
+////////////////////////////////////////////////////////////////////////////////
 // Webserver
 ////////////////////////////////////////////////////////////////////////////////
 gulp.task("webserver", function() {
@@ -91,4 +106,4 @@ gulp.task('watch', function() {
 ////////////////////////////////////////////////////////////////////////////////
 // Default task
 ////////////////////////////////////////////////////////////////////////////////
-gulp.task('default', ['webserver', 'watch', 'fonts', 'jsx', 'stylesheets', 'html', 'media']);
+gulp.task('default', ['webserver', 'watch', 'fonts', 'jsx', 'stylesheets', 'html', 'media', 'components']);
