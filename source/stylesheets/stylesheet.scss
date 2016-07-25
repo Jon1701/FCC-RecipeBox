@@ -1,41 +1,4 @@
-@import 'bootstrap.css';
-
 body {
   background-color: #E0E0E0;
-  font-family: "Roboto";
   font-size: 100%;
-}
-
-#recipe-box {
-  width: 100%;
-}
-
-// Responsive image class.
-.img-responsive {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-// Align text center.
-.text-center {
-  text-align: center;
-}
-
-.hidden {
-  display: none;
-}
-
-// Imported.
-@import '_fonts'; // Fonts.
-@import '_cards'; // Material Design Cards.
-@import '_recipe-view'; // Recipe View.
-
-.btn-default {
-  border-radius: 0;
-  border: none;
-  outline: none;
-  background: none;
-  text-transform: uppercase;
-
 }
