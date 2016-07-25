@@ -30,6 +30,13 @@ body {
 
   .container {
     width: 100%;
+
+    .btnarray-img-add-remove {
+      button {
+        display: block;
+        width: 100%;
+      }
+    }
   }
 
   .ingredients {
@@ -39,7 +46,6 @@ body {
       height: 250px;
     }
   }
-
 
 }
 

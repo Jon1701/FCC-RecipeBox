@@ -122,17 +122,24 @@ class ViewRecipe extends React.Component {
                 id={'recipe-file-' + this.props.recipe.id}
               />
 
-              <button
-                onClick={this.handleImageUpload.bind(this)}
-                className="waves-effect waves-light btn-large">
-                Upload Image
-              </button>
+              <div className="row btnarray-img-add-remove">
 
-              <button
-                onClick={this.handleImageRemove.bind(this)}
-                className="waves-effect waves-light btn-large">
-                Remove Image
-              </button>
+                <div className="col s6 m6 l6">
+                  <button onClick={this.handleImageUpload.bind(this)}
+                    className="waves-effect waves-light btn-large">
+                    Upload Image
+                  </button>
+                </div>
+
+                <div className="col s6 m6 l6">
+                  <button onClick={this.handleImageRemove.bind(this)}
+                    className="waves-effect waves-light btn-large red lighten-2">
+                    Remove Image
+                  </button>
+                </div>
+
+              </div>
+
 
 
             </div>

@@ -13,7 +13,7 @@ class Recipe extends React.Component {
     // The <Recipe/> component keeps track of whether the child <ViewRecipe/>
     // component is hidden or not.
     this.state = {
-      display: false
+      display: true
     }
   }
 
