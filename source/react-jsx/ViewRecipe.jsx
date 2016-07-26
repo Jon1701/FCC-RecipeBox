@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ContentEditable from 'react-contenteditable';
 
 class ViewRecipe extends React.Component {
 
@@ -61,22 +62,16 @@ class ViewRecipe extends React.Component {
   //////////////////////////////////////////////////////////////////////////////
 
   handleUpdateTitle(event) {
-    let id = this.props.recipe.id;
-    let key = "name";
-    let value = event.target.value;
-    this.props.updater(id, key, value);
+    this.props.updater(this.props.recipe.id, "name", event.target.value);
   }
   handleUpdateDescription(event) {
-    let id = this.props.recipe.id;
-    let key = "description";
-    let value = event.target.value;
-    this.props.updater(id, key, value);
+    this.props.updater(this.props.recipe.id, "description", event.target.value);
   }
   handleUpdateIngredients(event) {
-    let id = this.props.recipe.id;
-    let key = "ingredients";
-    let value = event.target.value;
-    this.props.updater(id, key, value);
+    this.props.updater(this.props.recipe.id, "ingredients", event.target.value);
+  }
+  handleUpdateInstructions(event) {
+    this.props.updater(this.props.recipe.id, "instructions", event.target.value);
   }
 
   //////////////////////////////////////////////////////////////////////////////
@@ -110,11 +105,12 @@ class ViewRecipe extends React.Component {
 
           <div className="container row">
             <div className="ingredients col s6">
-              <textarea
-                defaultValue={this.props.recipe.ingredients}
-                onChange={this.handleUpdateDescription.bind(this)}
-                placeholder="Enter some ingredients for this recipe"
-              />
+
+              <ContentEditable
+                html={this.props.recipe.ingredients}
+                onChange={this.handleUpdateIngredients.bind(this)}
+                />
+
             </div>
 
             <div className="image col s6">
@@ -154,12 +150,12 @@ class ViewRecipe extends React.Component {
           </div>
 
           <div className="instructions">
-            <textarea
-              data-key="instructions"
-              defaultValue={this.props.recipe.instructions}
-              onChange={this.handleRecipeEdit.bind(this)}
-              placeholder="Enter preparation instructions"
-            />
+
+            <ContentEditable
+              html={this.props.recipe.instructions}
+              onChange={this.handleUpdateInstructions.bind(this)}
+              />
+
           </div>
 
         </div>
