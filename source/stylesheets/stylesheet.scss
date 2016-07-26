@@ -34,7 +34,12 @@ body {
     input {
       text-align: center;
       font-size: 1.25em;
+      color: #000000;
     };
+
+    input[type="text"][disabled] {
+       color: #000000;
+    }
 
   }
 
