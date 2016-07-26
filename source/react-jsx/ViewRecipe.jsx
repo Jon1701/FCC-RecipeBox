@@ -107,6 +107,7 @@ class ViewRecipe extends React.Component {
             <div className="ingredients col s6">
 
               <ContentEditable
+                className="contentEditable-ingredients"
                 html={this.props.recipe.ingredients}
                 onChange={this.handleUpdateIngredients.bind(this)}
                 />
@@ -152,6 +153,7 @@ class ViewRecipe extends React.Component {
           <div className="instructions">
 
             <ContentEditable
+              className="contentEditable-instructions"
               html={this.props.recipe.instructions}
               onChange={this.handleUpdateInstructions.bind(this)}
               />

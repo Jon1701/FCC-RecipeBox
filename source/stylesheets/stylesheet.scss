@@ -39,13 +39,15 @@ body {
     }
   }
 
-  .ingredients {
-    textarea {
-      min-width: 100%;
-      max-width: 100%;
-      height: 250px;
-    }
+  .contentEditable-ingredients:empty::before {
+    content: "Enter some ingredients";
+    color: #D3D3D3;
   }
+  .contentEditable-instructions:empty::before {
+    content: "Enter some preparation instructions";
+    color: #D3D3D3;
+  }
+
 
 }
 
