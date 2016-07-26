@@ -106,6 +106,8 @@ class ViewRecipe extends React.Component {
           <div className="container row">
             <div className="ingredients col s6">
 
+              <h4 className="section-header">Ingredients</h4>
+
               <ContentEditable
                 className="contentEditable-ingredients"
                 html={this.props.recipe.ingredients}
@@ -151,6 +153,8 @@ class ViewRecipe extends React.Component {
           </div>
 
           <div className="instructions">
+
+            <h4 className="section-header">Preparation Instructions</h4>
 
             <ContentEditable
               className="contentEditable-instructions"

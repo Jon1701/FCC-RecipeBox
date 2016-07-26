@@ -24,8 +24,18 @@ body {
   width: 100%;
   min-height: 100%;
 
+  font-size: 1.25em;
+
+  .section-header {
+    text-align: center;
+  }
+
   .title, .description {
-    input { text-align: center; };
+    input {
+      text-align: center;
+      font-size: 1.25em;
+    };
+
   }
 
   .container {
