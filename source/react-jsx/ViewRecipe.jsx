@@ -59,12 +59,23 @@ class ViewRecipe extends React.Component {
   //////////////////////////////////////////////////////////////////////////////
   // Function to <ViewRecipe/> prop changes.
   //////////////////////////////////////////////////////////////////////////////
-  handleRecipeEdit(event) {
 
+  handleUpdateTitle(event) {
     let id = this.props.recipe.id;
-    let key = event.target.getAttribute('data-key');
+    let key = "name";
     let value = event.target.value;
-
+    this.props.updater(id, key, value);
+  }
+  handleUpdateDescription(event) {
+    let id = this.props.recipe.id;
+    let key = "description";
+    let value = event.target.value;
+    this.props.updater(id, key, value);
+  }
+  handleUpdateIngredients(event) {
+    let id = this.props.recipe.id;
+    let key = "ingredients";
+    let value = event.target.value;
     this.props.updater(id, key, value);
   }
 
@@ -83,18 +94,16 @@ class ViewRecipe extends React.Component {
           <div className="title">
             <input
               className="card-title"
-              data-key="name"
               defaultValue={this.props.recipe.name}
-              onChange={this.handleRecipeEdit.bind(this)}
+              onChange={this.handleUpdateTitle.bind(this)}
               placeholder="Enter a title for this recipe"
             />
           </div>
 
           <div className="description">
             <input
-              data-key="description"
               defaultValue={this.props.recipe.description}
-              onChange={this.handleRecipeEdit.bind(this)}
+              onChange={this.handleUpdateDescription.bind(this)}
               placeholder="Enter a description for this recipe"
             />
           </div>
@@ -102,9 +111,8 @@ class ViewRecipe extends React.Component {
           <div className="container row">
             <div className="ingredients col s6">
               <textarea
-                data-key="ingredients"
                 defaultValue={this.props.recipe.ingredients}
-                onChange={this.handleRecipeEdit.bind(this)}
+                onChange={this.handleUpdateDescription.bind(this)}
                 placeholder="Enter some ingredients for this recipe"
               />
             </div>
