@@ -131,14 +131,14 @@ class ViewRecipe extends React.Component {
 
               <div className="row btnarray-img-add-remove">
 
-                <div className="col s6 m6 l6">
+                <div className="col s8 m8 l8">
                   <button onClick={this.handleImageUpload.bind(this)}
                     className="waves-effect waves-light btn-large">
                     Upload Image
                   </button>
                 </div>
 
-                <div className="col s6 m6 l6">
+                <div className="col s4 m4 l4">
                   <button onClick={this.handleImageRemove.bind(this)}
                     className="waves-effect waves-light btn-large red lighten-2">
                     Remove Image
@@ -146,8 +146,6 @@ class ViewRecipe extends React.Component {
                 </div>
 
               </div>
-
-
 
             </div>
           </div>
@@ -162,6 +160,30 @@ class ViewRecipe extends React.Component {
               onChange={this.handleUpdateInstructions.bind(this)}
               />
 
+          </div>
+
+          <div className="container-btn-submit">
+
+            <hr/>
+
+            <button
+              className="waves-effect waves-light btn-large disabled">
+              Autosave Enabled
+            </button>
+
+            {" "}
+
+            <button
+              className="waves-effect waves-light btn-large teal lighten-2">
+              Edit
+            </button>
+
+            {" "}
+
+            <button
+              className="waves-effect waves-light btn-large red lighten-2">
+              Delete
+            </button>
           </div>
 
         </div>
