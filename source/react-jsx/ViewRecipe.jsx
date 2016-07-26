@@ -5,6 +5,18 @@ import ContentEditable from 'react-contenteditable';
 class ViewRecipe extends React.Component {
 
   //////////////////////////////////////////////////////////////////////////////
+  // Function to handle edit state.
+  //////////////////////////////////////////////////////////////////////////////
+  handleEditState() {
+
+    // Toggle editability state.
+    this.setState({
+      disableEditing: !this.state.disableEditing
+    })
+
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
   // Function to handle image uploads.
   //////////////////////////////////////////////////////////////////////////////
   handleImageUpload() {
@@ -75,6 +87,18 @@ class ViewRecipe extends React.Component {
   }
 
   //////////////////////////////////////////////////////////////////////////////
+  // Constructor.
+  //////////////////////////////////////////////////////////////////////////////
+  constructor() {
+    super();
+
+    // By default do not allow editing of this components text fields.
+    this.state = {
+      disableEditing: true
+    }
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
   // Component render.
   //////////////////////////////////////////////////////////////////////////////
   render() {
@@ -88,18 +112,22 @@ class ViewRecipe extends React.Component {
 
           <div className="title">
             <input
+              type="text"
               className="card-title"
               defaultValue={this.props.recipe.name}
               onChange={this.handleUpdateTitle.bind(this)}
               placeholder="Enter a title for this recipe"
+              disabled={this.state.disableEditing}
             />
           </div>
 
           <div className="description">
             <input
               defaultValue={this.props.recipe.description}
+              type="text"
               onChange={this.handleUpdateDescription.bind(this)}
               placeholder="Enter a description for this recipe"
+              disabled={this.state.disableEditing}
             />
           </div>
 
@@ -110,6 +138,7 @@ class ViewRecipe extends React.Component {
 
               <ContentEditable
                 className="contentEditable-ingredients"
+                disabled={this.state.disableEditing}
                 html={this.props.recipe.ingredients}
                 onChange={this.handleUpdateIngredients.bind(this)}
                 />
@@ -156,6 +185,7 @@ class ViewRecipe extends React.Component {
 
             <ContentEditable
               className="contentEditable-instructions"
+              disabled={this.state.disableEditing}
               html={this.props.recipe.instructions}
               onChange={this.handleUpdateInstructions.bind(this)}
               />
@@ -174,7 +204,8 @@ class ViewRecipe extends React.Component {
             {" "}
 
             <button
-              className="waves-effect waves-light btn-large teal lighten-2">
+              className="waves-effect waves-light btn-large teal lighten-2"
+              onClick={this.handleEditState.bind(this)}>
               Edit
             </button>
 
