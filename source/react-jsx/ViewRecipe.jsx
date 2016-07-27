@@ -22,10 +22,6 @@ class ViewRecipe extends React.Component {
     // Select the edit button for the current recipe.
     var editButton = document.querySelector(recipeViewSelector + ' .button-edit');
 
-    // Select the Image upload and Remove buttons.
-    var buttonUploadImage = document.querySelector(recipeViewSelector + ' .button-upload-image');
-    var buttonRemoveImage = document.querySelector(recipeViewSelector + ' .button-remove-image');
-
     // Add/Remove .form-field-editable class based on editability state.
     // Change Edit button text based on editability state.
     if (this.state.disableEditing) {
