@@ -14,11 +14,19 @@
 
   font-size: 1.25em;
 
+  .button-close {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    font-size: 2em;
+  }
+
   .recipe-title {
     text-align: center;
     font-size: 2em;
 
     padding: 15px;
+    margin-top: 5px;
     margin-bottom: 5px;
   }
 

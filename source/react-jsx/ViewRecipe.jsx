@@ -144,7 +144,7 @@ class ViewRecipe extends React.Component {
       return (
         <div className="card recipe-view" id={"recipe-id-" + this.props.recipe.id}>
 
-          <div className="close-button" onClick={this.props.hideModal}>
+          <div className="button-close" onClick={this.props.hideModal}>
             &times;
           </div>
 
