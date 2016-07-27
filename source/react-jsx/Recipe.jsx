@@ -12,8 +12,10 @@ class Recipe extends React.Component {
     // Default state of hidden.
     // The <Recipe/> component keeps track of whether the child <ViewRecipe/>
     // component is hidden or not.
+    //
+    // When set to true, all recipe views will be open.
     this.state = {
-      display: true
+      display: false
     }
   }
 
@@ -42,11 +44,13 @@ class Recipe extends React.Component {
     return (
       <div>
 
-        <div className="col s4" onClick={this.showModal.bind(this)}>
+        <div className="col s6" onClick={this.showModal.bind(this)}>
           <div className="card hoverable recipe">
             <div className="card-image">
               <img src={this.props.recipe.picture}/>
-              <span className="card-title truncate">{this.props.recipe.name}</span>
+              <div className="card-title">
+                <p className="truncate">{this.props.recipe.name}</p>
+              </div>
             </div>
             <div className="card-content">
               <p className="truncate">{this.props.recipe.description}</p>
