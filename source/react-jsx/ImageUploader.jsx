@@ -28,7 +28,7 @@ class ImageUploader extends React.Component {
     });
 
     return (
-      <div>
+      <div className="container-imageuploader">
 
         <input
           accept="image/*"
@@ -38,7 +38,7 @@ class ImageUploader extends React.Component {
           id={'recipe-file-' + this.props.id}
         />
 
-        <div className="row btnarray-img-add-remove">
+        <div className="row button-array">
 
           <div className="col s6 m6 l6">
             <button

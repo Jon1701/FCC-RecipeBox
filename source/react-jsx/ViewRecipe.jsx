@@ -148,35 +148,28 @@ class ViewRecipe extends React.Component {
             &times;
           </div>
 
-          <div className="title">
+          <ContentEditable
+            className="recipe-title contentEditable-name form-field"
+            disabled={this.state.disableEditing}
+            html={this.props.recipe.name}
+            onChange={this.handleUpdateTitle.bind(this)}
+          />
 
-            <ContentEditable
-              className="contentEditable-name form-field"
-              disabled={this.state.disableEditing}
-              html={this.props.recipe.name}
-              onChange={this.handleUpdateDescription.bind(this)}
-            />
+          <ContentEditable
+            className="recipe-description contentEditable-description form-field"
+            disabled={this.state.disableEditing}
+            html={this.props.recipe.description}
+            onChange={this.handleUpdateDescription.bind(this)}
+          />
 
-          </div>
+          <div className="container-ingredients-image row">
 
-          <div className="description">
-
-            <ContentEditable
-              className="contentEditable-description form-field"
-              disabled={this.state.disableEditing}
-              html={this.props.recipe.description}
-              onChange={this.handleUpdateDescription.bind(this)}
-            />
-
-          </div>
-
-          <div className="container row">
-            <div className="ingredients col s12 m6">
+            <div className="container-recipe-ingredients col s12 m6">
 
               <h4 className="section-header">Ingredients</h4>
 
               <ContentEditable
-                className="contentEditable-ingredients form-field"
+                className="recipe-ingredients contentEditable-ingredients form-field"
                 disabled={this.state.disableEditing}
                 html={this.props.recipe.ingredients}
                 onChange={this.handleUpdateIngredients.bind(this)}
@@ -184,8 +177,8 @@ class ViewRecipe extends React.Component {
 
             </div>
 
-            <div className="image col s12 m6">
-              <img src={this.props.recipe.picture} className="maxwidth-img"/>
+            <div className="container-recipe-image col s12 m6">
+              <img src={this.props.recipe.picture} className="img-constraints"/>
 
               <div className="clearfix"></div>
 
@@ -198,12 +191,12 @@ class ViewRecipe extends React.Component {
             </div>
           </div>
 
-          <div className="instructions">
+          <div className="container-recipe-instructions">
 
             <h4 className="section-header">Preparation Instructions</h4>
 
             <ContentEditable
-              className="contentEditable-instructions form-field"
+              className="recipe-instructions contentEditable-instructions form-field"
               disabled={this.state.disableEditing}
               html={this.props.recipe.instructions}
               onChange={this.handleUpdateInstructions.bind(this)}
