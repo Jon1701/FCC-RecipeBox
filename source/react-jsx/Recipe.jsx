@@ -58,7 +58,8 @@ class Recipe extends React.Component {
           recipe={this.props.recipe}
           show={this.state.display}
           hideModal={this.hideModal.bind(this)}
-          updater={this.props.updater}
+          updateRecipe={this.props.updateRecipe}
+          deleteRecipe={this.props.deleteRecipe}
         />
 
       </div>

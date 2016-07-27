@@ -53,7 +53,7 @@ class RecipeList extends React.Component {
   //  key: the field name whose value is to be updated
   //  value: the updated value
   //////////////////////////////////////////////////////////////////////////////
-  handleUserChange(id, key, value) {
+  handleRecipeEdit(id, key, value) {
 
     // Get a copy of all recipes in the state.
     var recipes = this.state.recipes.slice();
@@ -80,6 +80,31 @@ class RecipeList extends React.Component {
   }
 
   //////////////////////////////////////////////////////////////////////////////
+  // Function to handle recipe deletion.
+  //////////////////////////////////////////////////////////////////////////////
+  handleRecipeDelete(id) {
+
+    // Get a copy of all recipes in the state.
+    var recipes = this.state.recipes.slice();
+
+    // Filter recipes and only return the recipe to be updated.
+    var result = recipes.filter(function(currentValue, index, arr) {
+      return currentValue.id == id;
+    })[0];
+
+    // Get the index of the recipe to be updated.
+    var idx = recipes.indexOf(result);
+
+    // Remove recipe at index idx.
+    recipes.splice(idx, 1);
+
+    // Update state.
+    this.setState({
+      recipes: recipes
+    });
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
   // Component render
   //////////////////////////////////////////////////////////////////////////////
   render() {
@@ -90,7 +115,7 @@ class RecipeList extends React.Component {
     return (
       <div className="row">
         {this.state.recipes.map(function(element, index) {
-          return <Recipe recipe={element} key={index} updater={thisComp.handleUserChange.bind(thisComp)}/>
+          return <Recipe recipe={element} key={index} updateRecipe={thisComp.handleRecipeEdit.bind(thisComp)} deleteRecipe={thisComp.handleRecipeDelete.bind(thisComp)}/>
         })}
       </div>
     );
