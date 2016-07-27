@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ContentEditable from 'react-contenteditable';
-
+import ImageUploader from './ImageUploader.jsx';
 class ViewRecipe extends React.Component {
 
   //////////////////////////////////////////////////////////////////////////////
@@ -191,32 +191,7 @@ class ViewRecipe extends React.Component {
 
               <div className="clearfix"></div>
 
-              <input
-                accept="image/*"
-                type="file"
-                title="load file"
-                className="hidden"
-                id={'recipe-file-' + this.props.recipe.id}
-              />
-
-              <div className="row btnarray-img-add-remove">
-
-                <div className="col s8 m8 l8">
-                  <button onClick={this.handleImageUpload.bind(this)}
-                    className="button-upload-image waves-effect waves-light btn-large">
-                    Upload Image
-                  </button>
-                </div>
-
-                <div className="col s4 m4 l4">
-                  <button onClick={this.handleImageRemove.bind(this)}
-                    className="button-remove-image waves-effect waves-light btn-large red lighten-2">
-                    Remove Image
-                  </button>
-                </div>
-
-              </div>
-
+              <ImageUploader id={this.props.recipe.id} uploadHandler={this.handleImageUpload.bind(this)} removeHandler={this.handleImageRemove.bind(this)} />
             </div>
           </div>
 
