@@ -171,7 +171,7 @@ class ViewRecipe extends React.Component {
           </div>
 
           <div className="container row">
-            <div className="ingredients col s6">
+            <div className="ingredients col s12 m6">
 
               <h4 className="section-header">Ingredients</h4>
 
@@ -184,7 +184,7 @@ class ViewRecipe extends React.Component {
 
             </div>
 
-            <div className="image col s6">
+            <div className="image col s12 m6">
               <img src={this.props.recipe.picture} className="maxwidth-img"/>
 
               <div className="clearfix"></div>
