@@ -137,7 +137,13 @@ class ViewRecipe extends React.Component {
         "waves-effect waves-light btn-large teal lighten-2": true,
         "button-view": this.state.disableEditing === false,
         "button-edit": this.state.disableEditing === true,
+
       });
+
+      var classesButtonViewEditIcons = classNames({
+        "fa fa-eye": this.state.disableEditing === false,
+        "fa fa-pencil-square-o": this.state.disableEditing === true
+      })
 
       return (
         <div className="card recipe-view" id={"recipe-id-" + this.props.recipe.id}>
@@ -215,7 +221,7 @@ class ViewRecipe extends React.Component {
 
             <button
               className="button-autosave waves-effect waves-light btn-large disabled">
-              Autosave Enabled
+              <i className="fa fa-spinner"></i> Autosave
             </button>
 
             {" "}
@@ -223,13 +229,14 @@ class ViewRecipe extends React.Component {
             <button
               className={classesButtonViewEdit}
               onClick={this.handleEditState.bind(this)}>
+              <i className={classesButtonViewEditIcons}></i>{" "}
             </button>
 
             {" "}
 
             <button
               className="button-delete waves-effect waves-light btn-large red lighten-2">
-              Delete
+              <i className="fa fa-trash-o"></i> Delete
             </button>
           </div>
 

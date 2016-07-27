@@ -40,19 +40,19 @@ class ImageUploader extends React.Component {
 
         <div className="row btnarray-img-add-remove">
 
-          <div className="col s8 m8 l8">
+          <div className="col s6 m6 l6">
             <button
               onClick={this.props.uploadHandler}
               className={classesButtonUploadImage}>
-              Upload Image
+              <i className="fa fa-upload"></i> Upload
             </button>
           </div>
 
-          <div className="col s4 m4 l4">
+          <div className="col s6 m6 l6">
             <button
               onClick={this.props.removeHandler}
               className={classesButtonRemoveImage}>
-              Remove Image
+              <i className="fa fa-times"></i> Remove
             </button>
           </div>
 
