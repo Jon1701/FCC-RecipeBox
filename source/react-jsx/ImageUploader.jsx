@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 class ImageUploader extends React.Component {
 
@@ -7,6 +8,25 @@ class ImageUploader extends React.Component {
   }
 
   render() {
+
+    var classesButtonUploadImage = classNames({
+      'button-upload-image': true,
+      'waves-effect': true,
+      'waves-light': true,
+      'btn-large': true,
+      'invisible': this.props.disableEditing
+    });
+
+    var classesButtonRemoveImage = classNames({
+      'button-remove-image': true,
+      'waves-effect': true,
+      'waves-light': true,
+      'btn-large': true,
+      'red': true,
+      'lighten-2': true,
+      'invisible': this.props.disableEditing
+    });
+
     return (
       <div>
 
@@ -21,15 +41,17 @@ class ImageUploader extends React.Component {
         <div className="row btnarray-img-add-remove">
 
           <div className="col s8 m8 l8">
-            <button onClick={this.props.uploadHandler}
-              className="button-upload-image waves-effect waves-light btn-large">
+            <button
+              onClick={this.props.uploadHandler}
+              className={classesButtonUploadImage}>
               Upload Image
             </button>
           </div>
 
           <div className="col s4 m4 l4">
-            <button onClick={this.props.removeHandler}
-              className="button-remove-image waves-effect waves-light btn-large red lighten-2">
+            <button
+              onClick={this.props.removeHandler}
+              className={classesButtonRemoveImage}>
               Remove Image
             </button>
           </div>

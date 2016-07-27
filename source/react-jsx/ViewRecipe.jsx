@@ -191,7 +191,12 @@ class ViewRecipe extends React.Component {
 
               <div className="clearfix"></div>
 
-              <ImageUploader id={this.props.recipe.id} uploadHandler={this.handleImageUpload.bind(this)} removeHandler={this.handleImageRemove.bind(this)} />
+              <ImageUploader
+                id={this.props.recipe.id}
+                uploadHandler={this.handleImageUpload.bind(this)}
+                removeHandler={this.handleImageRemove.bind(this)}
+                disableEditing={this.state.disableEditing}
+              />
             </div>
           </div>
 
