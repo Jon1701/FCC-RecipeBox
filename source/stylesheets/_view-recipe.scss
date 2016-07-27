@@ -71,4 +71,14 @@
     content: "Edit";
   }
 
+  .container-btn-submit {
+    text-align: center;
+    
+    button {
+      display: block;
+      width: 100%;
+      margin: 2px;
+    }
+  }
+
 }

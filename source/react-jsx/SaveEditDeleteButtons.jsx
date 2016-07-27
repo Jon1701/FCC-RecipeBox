@@ -20,27 +20,33 @@ class SaveEditDeleteButtons extends React.Component {
     })
 
     return (
-      <div>
-        <button
-          className="button-autosave waves-effect waves-light btn-large disabled">
-          <i className="fa fa-spinner"></i> Autosave
-        </button>
+      <div className="row">
+
+        <div className="col s12 m4">
+          <button
+            className="button-autosave waves-effect waves-light btn-large disabled">
+            Autosave
+          </button>
+        </div>
 
         {" "}
 
-        <button
-          className={classesButtonViewEdit}
-          onClick={this.props.RecipeViewEditState}>
-          <i className={classesButtonViewEditIcons}></i>{" "}
-        </button>
-
+        <div className="col s12 m4">
+          <button
+            className={classesButtonViewEdit}
+            onClick={this.props.RecipeViewEditState}>
+            <i className={classesButtonViewEditIcons}></i>{" "}
+          </button>
+        </div>
         {" "}
 
-        <button
-          className="button-delete waves-effect waves-light btn-large red lighten-2"
-          onClick={this.props.deleteRecipe}>
-          <i className="fa fa-trash-o"></i> Delete
-        </button>
+        <div className="col s12 m4">
+          <button
+            className="button-delete waves-effect waves-light btn-large red lighten-2"
+            onClick={this.props.deleteRecipe}>
+            <i className="fa fa-trash-o"></i> Delete
+          </button>
+        </div>
       </div>
     )
   }
