@@ -19,9 +19,6 @@ class ViewRecipe extends React.Component {
     // Select all .form-field for the current recipe.
     var formFields = document.querySelectorAll(recipeViewSelector + ' .form-field');
 
-    // Select the edit button for the current recipe.
-    var editButton = document.querySelector(recipeViewSelector + ' .button-edit');
-
     // Add/Remove .form-field-editable class based on editability state.
     // Change Edit button text based on editability state.
     if (this.state.disableEditing) {
@@ -30,17 +27,11 @@ class ViewRecipe extends React.Component {
       // add the .form-field-editable class.
       [...formFields].map(field => field.className = field.className + " form-field-editable ");
 
-      // Change EDIT button to VIEW.
-      editButton.innerText = 'View';
-
     } else {
 
       // If editing is currently enabled, want to disallow editing,
       // remove the .form-field-editable class.
       [...formFields].map(field => field.className = field.className.replace(/\bform\-field\-editable\b/));
-
-      // Change EDIT button to VIEW.
-      editButton.innerText = 'Edit';
 
     }
 
@@ -221,7 +212,7 @@ class ViewRecipe extends React.Component {
             {" "}
 
             <button
-              className="button-edit waves-effect waves-light btn-large teal lighten-2"
+              className="button-viewedit waves-effect waves-light btn-large teal lighten-2"
               onClick={this.handleEditState.bind(this)}>
               Edit
             </button>
