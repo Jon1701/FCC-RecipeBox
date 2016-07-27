@@ -1,0 +1,72 @@
+
+.recipe-view {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  z-index: 100;
+
+  max-width: 100%;
+  width: 100%;
+  min-height: 100%;
+
+  font-size: 1.25em;
+
+  .maxwidth-img {
+    min-width: 100%;
+    max-width: 100%;
+    max-height: 100vh;
+  }
+
+   .form-field-editable {
+     background-color: teal;
+   }
+
+  .section-header {
+    text-align: center;
+  }
+
+  .title, .description {
+    .form-field {
+      text-align: center;
+      font-size: 1.25em;
+      color: #000000;
+      border: none;
+      outline: none;
+    };
+
+    .form-field[disabled] {
+       color: #000000;
+    }
+
+  }
+
+  .container {
+    width: 100%;
+
+    .btnarray-img-add-remove {
+      button {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+
+  .contentEditable-ingredients:empty::before {
+    content: "Enter some ingredients";
+    color: #D3D3D3;
+  }
+  .contentEditable-instructions:empty::before {
+    content: "Enter some preparation instructions";
+    color: #D3D3D3;
+  }
+
+  .button-view::before {
+    content: "View";
+  }
+
+  .button-edit::after {
+    content: "Edit";
+  }
+
+}
