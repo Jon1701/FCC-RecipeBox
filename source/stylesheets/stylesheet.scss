@@ -26,18 +26,25 @@ body {
 
   font-size: 1.25em;
 
+
+   .form-field-editable {
+     background-color: teal;
+   }
+
   .section-header {
     text-align: center;
   }
 
   .title, .description {
-    input {
+    .form-field {
       text-align: center;
       font-size: 1.25em;
       color: #000000;
+      border: none;
+      outline: none;
     };
 
-    input[type="text"][disabled] {
+    .form-field[disabled] {
        color: #000000;
     }
 

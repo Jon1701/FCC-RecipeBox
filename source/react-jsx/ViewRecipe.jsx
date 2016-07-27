@@ -6,13 +6,53 @@ class ViewRecipe extends React.Component {
 
   //////////////////////////////////////////////////////////////////////////////
   // Function to handle edit state.
+  //  This function toggles editability. If the current state is DISABLED, it
+  //  will be set to ENABLED, and the DOM will be manipulated to show enabled
+  //  styles.
+  //
   //////////////////////////////////////////////////////////////////////////////
   handleEditState() {
+
+    // Get the Recipe ViewID DOM Selector.
+    var recipeViewSelector = '#recipe-id-' + this.props.recipe.id;
+
+    // Select all .form-field for the current recipe.
+    var formFields = document.querySelectorAll(recipeViewSelector + ' .form-field');
+
+    // Select the edit button for the current recipe.
+    var editButton = document.querySelector(recipeViewSelector + ' .button-edit');
+
+    // Select the Image upload and Remove buttons.
+    var buttonUploadImage = document.querySelector(recipeViewSelector + ' .button-upload-image');
+    var buttonRemoveImage = document.querySelector(recipeViewSelector + ' .button-remove-image');
+
+    // Add/Remove .form-field-editable class based on editability state.
+    // Change Edit button text based on editability state.
+    if (this.state.disableEditing) {
+
+      // If editing is currently disabled, want to allow editing,
+      // add the .form-field-editable class.
+      [...formFields].map(field => field.className = field.className + " form-field-editable ");
+
+      // Change EDIT button to VIEW.
+      editButton.innerText = 'View';
+
+    } else {
+
+      // If editing is currently enabled, want to disallow editing,
+      // remove the .form-field-editable class.
+      [...formFields].map(field => field.className = field.className.replace(/\bform\-field\-editable\b/));
+
+      // Change EDIT button to VIEW.
+      editButton.innerText = 'Edit';
+
+    }
 
     // Toggle editability state.
     this.setState({
       disableEditing: !this.state.disableEditing
     })
+
 
   }
 
@@ -104,7 +144,7 @@ class ViewRecipe extends React.Component {
   render() {
     if (this.props.show) {
       return (
-        <div className="card recipe-view">
+        <div className="card recipe-view" id={"recipe-id-" + this.props.recipe.id}>
 
           <div className="close-button" onClick={this.props.hideModal}>
             &times;
@@ -113,7 +153,7 @@ class ViewRecipe extends React.Component {
           <div className="title">
             <input
               type="text"
-              className="card-title"
+              className="card-title form-field"
               defaultValue={this.props.recipe.name}
               onChange={this.handleUpdateTitle.bind(this)}
               placeholder="Enter a title for this recipe"
@@ -123,6 +163,7 @@ class ViewRecipe extends React.Component {
 
           <div className="description">
             <input
+              className="form-field"
               defaultValue={this.props.recipe.description}
               type="text"
               onChange={this.handleUpdateDescription.bind(this)}
@@ -137,7 +178,7 @@ class ViewRecipe extends React.Component {
               <h4 className="section-header">Ingredients</h4>
 
               <ContentEditable
-                className="contentEditable-ingredients"
+                className="contentEditable-ingredients form-field"
                 disabled={this.state.disableEditing}
                 html={this.props.recipe.ingredients}
                 onChange={this.handleUpdateIngredients.bind(this)}
@@ -162,14 +203,14 @@ class ViewRecipe extends React.Component {
 
                 <div className="col s8 m8 l8">
                   <button onClick={this.handleImageUpload.bind(this)}
-                    className="waves-effect waves-light btn-large">
+                    className="button-upload-image waves-effect waves-light btn-large">
                     Upload Image
                   </button>
                 </div>
 
                 <div className="col s4 m4 l4">
                   <button onClick={this.handleImageRemove.bind(this)}
-                    className="waves-effect waves-light btn-large red lighten-2">
+                    className="button-remove-image waves-effect waves-light btn-large red lighten-2">
                     Remove Image
                   </button>
                 </div>
@@ -184,7 +225,7 @@ class ViewRecipe extends React.Component {
             <h4 className="section-header">Preparation Instructions</h4>
 
             <ContentEditable
-              className="contentEditable-instructions"
+              className="contentEditable-instructions form-field"
               disabled={this.state.disableEditing}
               html={this.props.recipe.instructions}
               onChange={this.handleUpdateInstructions.bind(this)}
@@ -197,14 +238,14 @@ class ViewRecipe extends React.Component {
             <hr/>
 
             <button
-              className="waves-effect waves-light btn-large disabled">
+              className="button-autosave waves-effect waves-light btn-large disabled">
               Autosave Enabled
             </button>
 
             {" "}
 
             <button
-              className="waves-effect waves-light btn-large teal lighten-2"
+              className="button-edit waves-effect waves-light btn-large teal lighten-2"
               onClick={this.handleEditState.bind(this)}>
               Edit
             </button>
@@ -212,7 +253,7 @@ class ViewRecipe extends React.Component {
             {" "}
 
             <button
-              className="waves-effect waves-light btn-large red lighten-2">
+              className="button-delete waves-effect waves-light btn-large red lighten-2">
               Delete
             </button>
           </div>
