@@ -70,6 +70,13 @@ body {
     color: #D3D3D3;
   }
 
+  .button-view::before {
+    content: "View";
+  }
+
+  .button-edit::after {
+    content: "Edit";
+  }
 
 }
 

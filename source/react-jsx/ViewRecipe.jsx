@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ContentEditable from 'react-contenteditable';
 import ImageUploader from './ImageUploader.jsx';
+import classNames from 'classnames';
+
 class ViewRecipe extends React.Component {
 
   //////////////////////////////////////////////////////////////////////////////
@@ -130,6 +132,13 @@ class ViewRecipe extends React.Component {
   //////////////////////////////////////////////////////////////////////////////
   render() {
     if (this.props.show) {
+
+      var classesButtonViewEdit = classNames({
+        "waves-effect waves-light btn-large teal lighten-2": true,
+        "button-view": this.state.disableEditing === false,
+        "button-edit": this.state.disableEditing === true,
+      });
+
       return (
         <div className="card recipe-view" id={"recipe-id-" + this.props.recipe.id}>
 
@@ -212,9 +221,8 @@ class ViewRecipe extends React.Component {
             {" "}
 
             <button
-              className="button-viewedit waves-effect waves-light btn-large teal lighten-2"
+              className={classesButtonViewEdit}
               onClick={this.handleEditState.bind(this)}>
-              Edit
             </button>
 
             {" "}
