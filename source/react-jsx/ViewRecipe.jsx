@@ -149,25 +149,25 @@ class ViewRecipe extends React.Component {
           </div>
 
           <div className="title">
-            <input
-              type="text"
-              className="card-title form-field"
-              defaultValue={this.props.recipe.name}
-              onChange={this.handleUpdateTitle.bind(this)}
-              placeholder="Enter a title for this recipe"
+
+            <ContentEditable
+              className="contentEditable-name form-field"
               disabled={this.state.disableEditing}
+              html={this.props.recipe.name}
+              onChange={this.handleUpdateDescription.bind(this)}
             />
+
           </div>
 
           <div className="description">
-            <input
-              className="form-field"
-              defaultValue={this.props.recipe.description}
-              type="text"
-              onChange={this.handleUpdateDescription.bind(this)}
-              placeholder="Enter a description for this recipe"
+
+            <ContentEditable
+              className="contentEditable-description form-field"
               disabled={this.state.disableEditing}
+              html={this.props.recipe.description}
+              onChange={this.handleUpdateDescription.bind(this)}
             />
+
           </div>
 
           <div className="container row">

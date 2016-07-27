@@ -20,38 +20,41 @@
     max-height: 100vh;
   }
 
-   .form-field-editable {
-     background-color: teal;
-   }
+  .form-field-editable {
+    background-color: teal;
+  }
 
   .section-header {
     text-align: center;
   }
 
-  .title, .description {
-    .form-field {
-      text-align: center;
-      font-size: 1.25em;
-      color: #000000;
-      border: none;
-      outline: none;
-    };
+}
 
-    .form-field[disabled] {
-       color: #000000;
+
+
+
+.container {
+  width: 100%;
+
+  .btnarray-img-add-remove {
+    button {
+      display: block;
+      width: 100%;
     }
+  }
+}
 
+
+
+
+  .contentEditable-name:empty::before {
+    content: "Enter a short title";
+    color: #D3D3D3;
   }
 
-  .container {
-    width: 100%;
-
-    .btnarray-img-add-remove {
-      button {
-        display: block;
-        width: 100%;
-      }
-    }
+  .contentEditable-description:empty::before {
+    content: "Enter a short description";
+    color: #D3D3D3;
   }
 
   .contentEditable-ingredients:empty::before {
@@ -73,7 +76,7 @@
 
   .container-btn-submit {
     text-align: center;
-    
+
     button {
       display: block;
       width: 100%;
