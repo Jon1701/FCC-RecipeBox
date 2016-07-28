@@ -120,7 +120,7 @@ class RecipeList extends React.Component {
     return (
       <div>
 
-        <div className="row">
+        <div>
           <button
             className="button-add-recipe waves-effect waves-light btn-large"
             onClick={this.addRecipe.bind(this)}>

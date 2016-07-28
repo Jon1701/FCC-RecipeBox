@@ -3,8 +3,6 @@
   font-family: "Roboto", sans-serif;
   font-size: 1em;
 
-  border-radius: 2px;
-
   margin-top: 25px;
 
   .recipe-image {
@@ -47,19 +45,22 @@
       font-size: 1.25em;
     }
   }
-  /*
-  .card-image {
-    img {
-      min-height: 200px;
-      max-height: 200px;
-      object-fit: cover;
-    }
-  }
-  */
+
 }
 
 .button-add-recipe {
   display: block;
   width: 100%;
-  margin-top: 5px;
+}
+
+.recipe-title {
+  p:empty::before {
+    content: "(Untitled)"
+  }
+}
+
+.recipe-description {
+  p:empty::before {
+    content: "No description";
+  }
 }
