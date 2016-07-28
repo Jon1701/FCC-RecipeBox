@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import RecipeContainer from './RecipeContainer.jsx';
+import RecipeList from './RecipeList.jsx';
 
-ReactDOM.render(<RecipeContainer/>, document.getElementById("target"));
+ReactDOM.render(<RecipeList/>, document.getElementById("target"));
