@@ -15,7 +15,7 @@ class Recipe extends React.Component {
     //
     // When set to true, all recipe views will be open.
     this.state = {
-      display: true
+      display: false
     }
   }
 
@@ -44,15 +44,16 @@ class Recipe extends React.Component {
     return (
       <div>
 
-        <div className="col s6" onClick={this.showModal.bind(this)}>
-          <div className="card hoverable recipe">
-            <div className="card-image">
+        <div className="col s12 m6 l4" onClick={this.showModal.bind(this)}>
+          <div className="hoverable recipe">
+            <div className="recipe-image">
               <img src={this.props.recipe.picture}/>
-              <div className="card-title">
+
+              <div className="recipe-title">
                 <p className="truncate">{this.props.recipe.name}</p>
               </div>
             </div>
-            <div className="card-content">
+            <div className="recipe-description">
               <p className="truncate">{this.props.recipe.description}</p>
             </div>
           </div>
