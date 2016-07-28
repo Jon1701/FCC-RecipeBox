@@ -136,6 +136,18 @@ class ViewRecipe extends React.Component {
     }
   }
 
+  handleClose() {
+
+    // Toggle editability state.
+    this.setState({
+      disableEditing: !this.state.disableEditing
+    })
+
+    // Hide the view.
+    this.props.hideModal();
+
+  }
+
   //////////////////////////////////////////////////////////////////////////////
   // Component render.
   //////////////////////////////////////////////////////////////////////////////
@@ -146,7 +158,7 @@ class ViewRecipe extends React.Component {
 
         <div className="card recipe-view" id={"recipe-id-" + this.props.recipe.id}>
 
-          <div className="button-close" onClick={this.props.hideModal}>
+          <div className="button-close" onClick={this.handleClose.bind(this)}>
             &times;
           </div>
 
