@@ -102,7 +102,7 @@ class ViewRecipe extends React.Component {
 
   handleDelete() {
     let deleteRecipe = this.props.deleteRecipe;
-
+    this.props.hideModal();
     deleteRecipe(this.props.recipe.id);
   }
 
