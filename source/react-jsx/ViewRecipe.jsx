@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import ContentEditable from 'react-contenteditable';
 import ImageUploader from './ImageUploader.jsx';
 import SaveEditDeleteButtons from './SaveEditDeleteButtons.jsx'
-import DeleteConfirmation from './DeleteConfirmation.jsx';
 
 import classNames from 'classnames';
 
@@ -150,8 +149,6 @@ class ViewRecipe extends React.Component {
           <div className="button-close" onClick={this.props.hideModal}>
             &times;
           </div>
-
-          <DeleteConfirmation/>
 
           <ContentEditable
             className="recipe-title contentEditable-name form-field"
