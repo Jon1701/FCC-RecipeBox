@@ -140,7 +140,7 @@ class ViewRecipe extends React.Component {
 
     // Toggle editability state.
     this.setState({
-      disableEditing: !this.state.disableEditing
+      disableEditing: true
     })
 
     // Hide the view.
