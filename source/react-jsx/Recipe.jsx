@@ -15,7 +15,7 @@ class Recipe extends React.Component {
     //
     // When set to true, all recipe views will be open.
     this.state = {
-      display: false
+      display: true
     }
   }
 

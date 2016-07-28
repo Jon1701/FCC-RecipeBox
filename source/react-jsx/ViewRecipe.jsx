@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import ContentEditable from 'react-contenteditable';
 import ImageUploader from './ImageUploader.jsx';
 import SaveEditDeleteButtons from './SaveEditDeleteButtons.jsx'
+import DeleteConfirmation from './DeleteConfirmation.jsx';
+
 import classNames from 'classnames';
 
 class ViewRecipe extends React.Component {
@@ -142,11 +144,14 @@ class ViewRecipe extends React.Component {
     if (this.props.show) {
 
       return (
+
         <div className="card recipe-view" id={"recipe-id-" + this.props.recipe.id}>
 
           <div className="button-close" onClick={this.props.hideModal}>
             &times;
           </div>
+
+          <DeleteConfirmation/>
 
           <ContentEditable
             className="recipe-title contentEditable-name form-field"
@@ -217,6 +222,7 @@ class ViewRecipe extends React.Component {
           </div>
 
         </div>
+
       )
     } else {
       return null;
