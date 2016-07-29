@@ -30,6 +30,31 @@ class RecipeList extends React.Component {
     localStorage.setItem('recipes', JSON.stringify(this.state.recipes));
   }
 
+  componentDidMount() {
+
+    console.log(`\
+    Debug commands:\r\n\r\n \
+    deleteRecipes() \r\n  \
+    defaultRecipes() \r\n \
+    `);
+
+    var thisComp = this;
+
+    window.defaultRecipes = function() {
+      $.getJSON('../data/recipes-default.json', function(data) {
+        thisComp.setState({
+          recipes: data
+        })
+      })
+    };
+
+    window.deleteRecipes = function() {
+      thisComp.setState({
+        recipes: []
+      })
+    }
+  }
+
   //////////////////////////////////////////////////////////////////////////////
   // Function to handle <RecipeList/> state changes
   //

@@ -59,6 +59,15 @@ gulp.task('media', function() {
 
 });
 
+// Data
+gulp.task('data', function() {
+
+  // Placeholder images.
+  gulp.src(srcPath + 'data/*')
+    .pipe(gulp.dest(destPath + 'data/'));
+
+});
+
 ////////////////////////////////////////////////////////////////////////////////
 // Components
 ////////////////////////////////////////////////////////////////////////////////
@@ -100,4 +109,4 @@ gulp.task('watch', function() {
 ////////////////////////////////////////////////////////////////////////////////
 // Default task
 ////////////////////////////////////////////////////////////////////////////////
-gulp.task('default', ['webserver', 'watch', 'jsx', 'stylesheets', 'html', 'media', 'components']);
+gulp.task('default', ['webserver', 'watch', 'data', 'jsx', 'stylesheets', 'html', 'media', 'components']);
