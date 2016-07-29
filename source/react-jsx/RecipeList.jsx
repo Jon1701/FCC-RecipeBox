@@ -1,6 +1,7 @@
 import React from 'react';
 import Recipe from './Recipe.jsx';
 import uuid from 'node-uuid';
+import $ from 'jquery';
 
 // Component which contains all recipe data.
 class RecipeList extends React.Component {
@@ -11,48 +12,17 @@ class RecipeList extends React.Component {
   constructor() {
     super();
 
-    // Check to see if local storage does not have recipes stored.
+    // If local storage does not have recipes stored, create an empty array
+    // of recipes in the local storage.
     if (!localStorage.hasOwnProperty('recipes')) {
-
-      // If it does not, create an empty array of recipes in the local storage.
       localStorage.setItem('recipes', JSON.stringify([]));
-
     }
 
-    // Load the recipes
+    // Load the recipes.
     this.state = {
       recipes: JSON.parse(localStorage.getItem('recipes'))
     };
 
-  }
-
-  componentDidUpdate() {
-    localStorage.setItem('recipes', JSON.stringify(this.state.recipes));
-  }
-
-  componentDidMount() {
-
-    console.log(`\
-    Debug commands:\r\n\r\n \
-    deleteRecipes() \r\n  \
-    defaultRecipes() \r\n \
-    `);
-
-    var thisComp = this;
-
-    window.defaultRecipes = function() {
-      $.getJSON('../data/recipes-default.json', function(data) {
-        thisComp.setState({
-          recipes: data
-        })
-      })
-    };
-
-    window.deleteRecipes = function() {
-      thisComp.setState({
-        recipes: []
-      })
-    }
   }
 
   //////////////////////////////////////////////////////////////////////////////
@@ -131,6 +101,57 @@ class RecipeList extends React.Component {
       recipes: this.state.recipes.concat([blankRecipe])
     });
 
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+  // Component Lifecycle methods
+  //////////////////////////////////////////////////////////////////////////////
+
+  // Once the component state receives an update, propagate the state changes
+  // to the local storage.
+  componentDidUpdate() {
+    localStorage.setItem('recipes', JSON.stringify(this.state.recipes));
+  }
+
+  // Once the component did mount, expose functions for loading default recipes
+  // or deleting all recipes.
+  //
+  // All these functions are mainly just for debugging or presentation purposes.
+  componentDidMount() {
+
+    console.log(`\
+    Debug commands:\r\n\r\n \
+    deleteRecipes() \r\n  \
+    defaultRecipes() \r\n \
+    `);
+
+    // Reference to this component.
+    var thisComp = this;
+
+    // Load default recipes.
+    window.defaultRecipes = function() {
+      $.getJSON('../data/recipes-default.json', function(data) {
+        thisComp.setState({
+          recipes: data
+        })
+      })
+    };
+
+    // Delete all recipes.
+    window.deleteRecipes = function() {
+      thisComp.setState({
+        recipes: []
+      })
+    }
+
+    // Check to see if recipes value in the local storage is empty.
+    var keyExists = localStorage.hasOwnProperty('recipes');
+    var checkEmpty = JSON.parse(localStorage.getItem('recipes')).length === 0;
+
+    // If it is empty, load default recipes.
+    if (keyExists && checkEmpty) {
+      window.defaultRecipes();
+    }
   }
 
   //////////////////////////////////////////////////////////////////////////////
