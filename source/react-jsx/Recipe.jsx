@@ -44,7 +44,7 @@ class Recipe extends React.Component {
     return (
       <div>
 
-        <div className="col s12 m6 l4" onClick={this.showModal.bind(this)}>
+        <div className="col s12 m6 l4 noselect cursor-hand" onClick={this.showModal.bind(this)}>
           <div className="hoverable recipe">
             <div className="recipe-image">
               <img src={this.props.recipe.picture}/>
