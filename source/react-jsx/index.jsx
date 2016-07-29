@@ -1,12 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-
-// Recipe App
-import RecipeList from './RecipeList.jsx';
-ReactDOM.render(<RecipeList/>, document.getElementById("target"));
+import './RecipeBox/index.jsx';
 
 // jQuery
 import $ from 'jquery';
 
+// Font-awesome
+
+
 // Materialize
 import 'materialize-css';
+
+// Stylesheets.
+import '../stylesheets/stylesheet.scss';

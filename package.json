@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "./node_modules/.bin/webpack -d --watch",
+    "build": "./node_modules/.bin/webpack -p "
   },
   "repository": {
     "type": "git",
@@ -24,14 +25,13 @@
     "classnames": "^2.2.5",
     "css-loader": "^0.23.1",
     "materialize-css": "^0.97.7",
+    "node-sass": "^3.8.0",
     "node-uuid": "^1.4.7",
     "react": "^15.2.1",
     "react-contenteditable": "^1.1.0",
     "react-dom": "^15.2.1",
     "sass-loader": "^4.0.0",
-    "style-loader": "^0.13.1"
-  },
-  "devDependencies": {
+    "style-loader": "^0.13.1",
     "webpack": "^1.13.1"
   }
 }
