@@ -130,7 +130,7 @@ class RecipeList extends React.Component {
 
     // Load default recipes.
     window.defaultRecipes = function() {
-      $.getJSON('../data/recipes-default.json', function(data) {
+      $.getJSON('./data/recipes-default.json', function(data) {
         thisComp.setState({
           recipes: data
         })
