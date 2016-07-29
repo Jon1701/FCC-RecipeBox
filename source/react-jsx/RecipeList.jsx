@@ -90,7 +90,7 @@ class RecipeList extends React.Component {
     var blankRecipe = {
       'id': uuid.v4(),
       'name': '',
-      'picture': '../media/images/placeholders/recipe-no-image.png',
+      'picture': './media/images/placeholders/recipe-no-image.png',
       'description': '',
       'ingredients': '',
       'instructions': ''
