@@ -159,6 +159,10 @@ class ViewRecipe extends React.Component {
 
       return (
 
+        <div>
+
+        <div className="modal-click-barrier"></div>
+
         <div className="card recipe-view" id={"recipe-id-" + this.props.recipe.id}>
 
           <div className="button-close" onClick={this.handleClose.bind(this)}>
@@ -234,6 +238,8 @@ class ViewRecipe extends React.Component {
           </div>
 
         </div>
+
+      </div>
 
       )
     } else {
