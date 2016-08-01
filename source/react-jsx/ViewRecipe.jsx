@@ -94,7 +94,7 @@ class ViewRecipe extends React.Component {
     let updater = this.props.updateRecipe;
 
     // Default picture.
-    let defaultPicture = '../media/images/placeholders/recipe-no-image.png';
+    let defaultPicture = './media/images/placeholders/recipe-no-image.png';
 
     // Set default picture.
     updater(id, 'picture', defaultPicture);
