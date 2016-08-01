@@ -119,17 +119,11 @@ class RecipeList extends React.Component {
   // All these functions are mainly just for debugging or presentation purposes.
   componentDidMount() {
 
-    console.log(`\
-    Debug commands:\r\n\r\n \
-    deleteRecipes() \r\n  \
-    defaultRecipes() \r\n \
-    `);
-
     // Reference to this component.
     var thisComp = this;
 
     // Load default recipes.
-    window.defaultRecipes = function() {
+    var defaultRecipes = function() {
       $.getJSON('./data/recipes-default.json', function(data) {
         thisComp.setState({
           recipes: data
@@ -137,20 +131,13 @@ class RecipeList extends React.Component {
       })
     };
 
-    // Delete all recipes.
-    window.deleteRecipes = function() {
-      thisComp.setState({
-        recipes: []
-      })
-    }
-
     // Check to see if recipes value in the local storage is empty.
     var keyExists = localStorage.hasOwnProperty('recipes');
     var checkEmpty = JSON.parse(localStorage.getItem('recipes')).length === 0;
 
     // If it is empty, load default recipes.
     if (keyExists && checkEmpty) {
-      window.defaultRecipes();
+      defaultRecipes();
     }
   }
 
